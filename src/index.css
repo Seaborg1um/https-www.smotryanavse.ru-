@@ -1,0 +1,238 @@
+/* ============================= */
+/* RESET */
+/* ============================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  /* background-color: #23314a;*/
+  color: #8fa1b1;
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero {
+  position: relative;
+  min-height: 60vh; /* Было 100vh → короче для скролла */
+  width: 100%;
+  padding: 4rem 0 2rem; /* Отступы сверху/снизу */
+  display: flex;
+  align-items: center;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Увеличенное фото */
+  z-index: 1; /* текст НА фото */
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left 10%;
+}
+
+/* ============================= */
+/* ABOUT */
+/* ============================= */
+
+.about-section {
+  /*background-color: #e9ded6; */
+  padding: 1rem 1 2rem; /* Больше отступов снизу */
+  position: relative;
+  z-index: 1; /* Поверх фото */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-section.hide {
+  opacity: 0;
+  transform: translateY(-60px);
+}
+
+.about-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================= */
+/* CONTAINER */
+/* ============================= */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: absolute;
+  z-index: 3;
+
+  top: 5rem; /* двигать fbout вертикально */
+  right: 3rem;
+  max-width: 500px;
+  text-align: right;
+}
+
+/* ============================= */
+/* HEADER */
+/* ============================= */
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  font-weight: 700;
+  color: #7e6a86;
+  margin-bottom: -1rem;
+
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Читаемость */
+}
+
+.subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.8rem);
+  font-weight: 300;
+  color: #6c5e72;
+  margin-top: 1rem; /* расстояние между title and subtitle */
+  margin-bottom: 1.5rem; /* отступ между Психолог и about  */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.5; /* межстрочный интервал */
+  max-width: 800px;
+  margin: 0 auto -3rem; /* расстояние между кнопками и about */
+  color: #3e3642;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+.buttons-wrapper {
+  text-align: center;
+}
+
+.button-grid {
+  display: grid;
+  gap: 3rem; /* расстояние между кнопками */
+  margin-top: 5rem; /* расстояние между about и кнопками */
+}
+
+@media (min-width: 768px) {
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem; /* ширина кнопок по вертикали */
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Тёмная кнопка */
+.btn-green {
+  background: #8c7892;
+
+  color: #ffffff;
+}
+
+.btn-green:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Розовая кнопка */
+.btn-dark {
+  background: #ea828b;
+  color: #ffffff;
+}
+
+.btn-dark:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-subtext {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 400;
+  opacity: 0.85;
+  margin-top: 0.3rem;
+}
+
+/* ============================= */
+/* LOCATION */
+/* ============================= */
+
+.location {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #db8084;
+}
+
+/* ============================= */
+/* MOBILE ADAPTATION */
+/* ============================= */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh; /* лучше чем 100vh на мобилках */
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: flex-end; /* текст снизу */
+    justify-content: center;
+  }
+
+  .hero-image {
+    height: 100dvh;
+  }
+
+  .hero-image img {
+    object-position: center;
+  }
+
+  .container {
+    position: relative;
+    top: 0; /* УБИРАЕМ -15vh */
+    padding: 1rem 1rem;
+    text-align: center;
+
+    background-color: #dfd8d0;
+  }
+
+  .button-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
