@@ -204,9 +204,12 @@ body {
 /* MOBILE ADAPTATION */
 /* ============================= */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
   .hero {
-    min-height: 100vh; /* лучше чем 100vh на мобилках */
-    height: 100vh;
+    min-height: 100dvh; /* лучше чем 100vh на мобилках */
+    height: auto;
     padding: 0;
     display: flex;
     align-items: flex-end; /* текст снизу */
@@ -224,8 +227,12 @@ body {
   .container {
     position: relative;
     top: 0; /* УБИРАЕМ -15vh */
-    padding: 1rem 1rem;
+    right: 0;
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
     text-align: center;
+    box-sizing: border-box;
 
     background-color: #dfd8d0;
   }
