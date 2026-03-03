@@ -46,7 +46,7 @@ export default function Home() {
           {/* Кнопки */}
           <div className="buttons-wrapper">
             <div className="button-grid">
-              <a href="ttps://t.me/petrovaeytarget=" target="_blank" className="btn btn-dark">
+              <a href="https://t.me/petrovaeytarget=" className="btn btn-dark">
                 <span className="btn-text">
                   Записаться
                   <br />
